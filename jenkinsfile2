@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment {
         VCS = "git"
-        FNAME = "akshat"
+        FNAME = "raghav"
         compilegoal = "compile"
         testinggoal = "test"
         qagoal = "checkstyle:checkstyle"
