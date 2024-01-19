@@ -1,0 +1,34 @@
+pipeline{
+	agent any
+      stages{
+           stage('Git Checkout Stage'){
+               steps{
+		 echo 'Checkingout git for the code'
+                 git 'https://github.com/prabhatraghav/DevOpsClassCodes.git'
+		 echo 'Done: Checkingout the code'
+                 }
+           }
+          stage('Maven Compile Stage'){
+              steps{
+		 echo 'Compiling the code'
+                 sh 'mvn compile'
+		 echo 'Done: Compiling the code'
+	         }
+           }
+          
+          stage('Maven QA Stage'){
+              steps{
+		 echo 'QA of the code'
+                  sh 'mvn checkstyle:checkstyle'
+		 echo 'Done: QA of the code'
+                 }
+           }
+	     stage('Maven Package Stage'){
+		steps{
+		 echo 'Packaging of the code'
+                  sh 'mvn package'
+		 echo 'Done: Packaging of the code'
+    	         }
+	   }
+        }
+}
