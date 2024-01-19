@@ -1,6 +1,6 @@
 pipeline{
 	agent{
-		label 'Raghav-node'
+	label 'Raghav-node'
 	}
       stages{
            stage('Git Checkout Stage'){
